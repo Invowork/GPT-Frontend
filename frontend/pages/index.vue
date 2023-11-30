@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen flex flex-col">
+    <p>hello</p>
     <header class="bg-white shadow">
       <div
         class="flex justify-between items-center max-w-7xl mx-auto py-4 px-4"
@@ -28,21 +29,21 @@
 </template>
 
 <script setup>
-definePageMeta({
-  middleware: ["auth"],
+//  definePageMeta({
+//    middleware: ["auth"],
+//  });
+ const user = useSupabaseUser();
+ const client = useSupabaseClient();
+ const router = useRouter();
+
+
+
+ onMounted(() => {
+   watchEffect(() => {
+     if (!user.value) {
+   navigateTo("/login");
+ }
 });
-const user = useSupabaseUser();
-const client = useSupabaseClient();
-const router = useRouter();
-
-
-
-onMounted(() => {
-  watchEffect(() => {
-    if (!user.value) {
-      navigateTo("/login");
-    }
-  });
 });
 </script>
 

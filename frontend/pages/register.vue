@@ -2,6 +2,9 @@
 const router = useRouter();
 const email = ref("");
 const password = ref("");
+const fullName = ref("");
+const lawFirm = ref("");
+const areaLaw = ref("");
 const isSignUp = ref(false);
 const errorMsg = ref(null);
 
@@ -14,6 +17,7 @@ async function signUp() {
       password: password.value,
     });
     if (error) throw error;
+    
   } catch (error) {
     errorMsg.value = error.message;
     setTimeout(() => {
@@ -24,38 +28,22 @@ async function signUp() {
   }
 }
 
-async function login() {
-  try {
-    const { user, error } = await client.auth.signInWithPassword({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) throw error;
-    router.push("/");
-  } catch (error) {
-    errorMsg.value = `Error: ${error.message}`;
-    setTimeout(() => {
-      errorMsg.value = null;
-    }, 3000);
-    console.log("user", user);
-    console.log("error", error);
-  }
-}
+
 
 const user = useSupabaseUser();
-onMounted(() => {
-  watchEffect(() => {
-    if (user.value) {
-      navigateTo("/");
-    }
-  });
-});
+// onMounted(() => {
+//   watchEffect(() => {
+//     if (user.value) {
+//       navigateTo("/login");
+//     }
+//   });
+// });
 </script>
 
 <template>
   <div>
-    <div class="flex flex-col lg:flex-row w-full h-screen">
-      <div class="flex lg:w-2/3 xl:w-2/3 bg-primary h-1/3 lg:h-full">
+    <div class="flex flex-col lg:flex-row md:flex-row xl:flex-row w-full h-screen">
+      <div class="flex md:w-2/3 lg:w-2/3 xl:w-2/3 bg-primary h-1/3 md:h-full lg:h-full xl:h-full">
         <div class="flex flex-col justify-center items-center">
           <div class="flex space-x-4 items-center">
             <div
@@ -67,7 +55,7 @@ onMounted(() => {
                 class="h-[28px] w-[28px] lg:h-[50px] lg:w-[50px]"
               />
             </div>
-            <div class="lg:hidden block">
+            <div class="lg:hidden xl:hidden md:hidden block">
               <h1 class="text-main font-extrabold text-white text-center">
                 <a class="text-secondary">24/7</a> Lawyer
               </h1>
@@ -81,7 +69,7 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="flex w-full xl:w-1/3 lg:w-1/3 h-2/3 lg:h-full">
+      <div class="flex w-full xl:w-1/3 lg:w-1/3 md:w-1/3 h-2/3 lg:h-full xl:h-full md:h-full">
         <div class="flex flex-col mx-auto">
           <div
             class="text-primary rounded-md px-8 py-12 w-full max-w-md my-[90px] hidden lg:block"
@@ -99,19 +87,22 @@ onMounted(() => {
                 Register as a lawyer on our platform today.
               </p>
             </div>
-            <form class="flex flex-col justify-center">
+            <form @submit.prevent="signUp" class="flex flex-col justify-center">
               <input
                 type="text"
+                v-model="fullName"
                 class="mb-4 w-full border-2 border-my_border rounded-md border-solid py-3 px-5"
                 placeholder="Full Name"
               />
               <input
                 type="text"
+                v-model="lawFirm"
                 class="mb-4 w-full border-2 border-my_border rounded-md border-solid py-3 px-5"
                 placeholder="Law Firm"
               />
               <select
                 class="mb-4 w-full border-2 border-my_border rounded-md border-solid py-3 px-5"
+                v-model="areaLaw"
               >
                 <option value="Select an area of law">
                   Select an area of law
@@ -122,23 +113,26 @@ onMounted(() => {
               </select>
               <input
                 type="email"
+                v-model="email"
                 class="mb-4 w-full border-2 border-my_border rounded-md border-solid py-3 px-5"
                 placeholder="Email Address"
               />
               <input
                 type="password"
+                v-model="password"
                 class="mb-4 w-full border-2 border-my_border rounded-md border-solid py-3 px-5"
                 placeholder="Password"
               />
-              <button class="bg-secondary py-3 px-5 rounded-md">
+              <button type="submit" class="bg-secondary py-3 px-5 rounded-md">
                 <span class="text-white font-bold">Continue</span>
               </button>
             </form>
           </div>
 
-          <p class="text-center mt-8">
+          <p class="text-center mt-10 lg:mt-48">
             Already have an account?
-            <a href="#" class="text-secondary">Sign in.</a>
+            <NuxtLink to="/login" class="text-secondary underline border-b-0">Sign in</NuxtLink>
+            
           </p>
         </div>
       </div>
