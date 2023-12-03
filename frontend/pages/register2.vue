@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col lg:flex-row w-full h-screen">
-    <div class="flex w-2/3 bg-primary ">
+  <div class="flex flex-col lg:flex-row w-full h-screen ">
+    <div class="flex w-2/3 bg-primary  ">
       <div class="flex flex-col justify-center items-center">
         <div class="flex flex-col space-x-4 items-center">
           <div class="bg-secondary h-[81px] w-[81px] rounded-full p-4 hidden lg:block">

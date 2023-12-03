@@ -43,7 +43,7 @@ const user = useSupabaseUser();
 <template>
   <div>
     <div class="flex flex-col lg:flex-row md:flex-row xl:flex-row w-full h-screen">
-      <div class="flex md:w-2/3 lg:w-2/3 xl:w-2/3 bg-primary h-1/3 md:h-full lg:h-full xl:h-full">
+      <div class="flex md:w-2/3 lg:w-2/3 xl:w-2/3 bg-primary h-1/3 md:h-screen lg:h-screen xl:h-screen">
         <div class="flex flex-col justify-center items-center">
           <div class="flex space-x-4 items-center">
             <div
@@ -69,7 +69,7 @@ const user = useSupabaseUser();
           </div>
         </div>
       </div>
-      <div class="flex w-full xl:w-1/3 lg:w-1/3 md:w-1/3 h-2/3 lg:h-full xl:h-full md:h-full">
+      <div class="flex w-full xl:w-1/3 lg:w-1/3 md:w-1/3 h-2/3 lg:h-screen xl:h-screen md:h-screen">
         <div class="flex flex-col mx-auto">
           <div
             class="text-primary rounded-md px-8 py-12 w-full max-w-md my-[90px] hidden lg:block"
@@ -129,7 +129,7 @@ const user = useSupabaseUser();
             </form>
           </div>
 
-          <p class="text-center mt-10 lg:mt-48">
+          <p class="text-center ">
             Already have an account?
             <NuxtLink to="/login" class="text-secondary underline border-b-0">Sign in</NuxtLink>
             

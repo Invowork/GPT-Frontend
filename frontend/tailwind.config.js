@@ -14,13 +14,15 @@ export default {
       secondary:"#C80601",
       white:"#fff",
       my_border:"#EBE9E9",
-      gray:"#999191"
+      gray:"#999191",
+      dark_gray:"#737272"
+     
 
     },
     fontSize:{
       'main':'33px',
-      base:'15px'
-
+      base:'15px',
+     
     },
 
     extend: {},
