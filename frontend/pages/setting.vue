@@ -16,6 +16,7 @@
             />
           </div>
         </div>
+
         <div class="flex flex-col">
           <input
             type="text"
@@ -42,19 +43,22 @@
           />
         </div>
 
-        <div class="flex space-x-2 items-center lg:mt-80 md:mt-32 bg-[#202020] p-2">
+        <div class="flex  items-center mt-72 p-2 justify-between">
+         <div class="flex items-center space-x-2 bg-[#202020] ">
           <div>
             <img src="/icons/Arrow-Up.svg" alt="" class="w-[17px] h-[17px]" />
           </div>
           <div>
             <span class="text-[#358DF4] text-base">Upgrade to Premium</span>
           </div>
+         </div>
+          <div>
+            <img src="/icons/Vector.svg" alt="" class="w-[17px] h-[17px]" />
+          </div>
         </div>
       </div>
     </div>
-    <div
-      class="flex-1 w-full mr-[300px] hidden md:block lg:block"
-    >
+    <div class="flex-1 w-full mr-[300px] hidden md:block lg:block">
       <div class="flex flex-col p-[70px]">
         <div class="mb-8">
           <p class="text-primary font-semibold text-[28px]">Settings</p>
@@ -79,11 +83,105 @@
             </div>
             <div>
               <p class="text-dark_gray">
-                Standard Plan <span class="text-secondary">(change)</span>
+                Standard Plan
+                <span class="text-secondary" @click="showPopup()"
+                  >(change)</span
+                >
               </p>
             </div>
           </div>
         </div>
+        <!-- card -->
+        <div class="modal" v-if="isPopupShown">
+          <div
+            class="border-2 border-my_border bg-white rounded-md border-solid"
+          >
+            <div
+              class="flex p-5 justify-between border-b-2 border-my_border rounded-md border-solid"
+            >
+              <h1 class="text-secondary text-[22px] font-bold">
+                Standard Plan
+              </h1>
+              <span class="text-primary text-[22px] font-bold">$ 20 / mo</span>
+            </div>
+            <div class="flex flex-col m-[20px] gap-3">
+              <div class="flex space-x-2">
+                <img
+                  src="/icons/check_FILL.svg"
+                  alt=""
+                  class="h-[22px] w-[22px]"
+                />
+                <p class="text-base text-primary font-medium">
+                  Basic profile display on website
+                </p>
+              </div>
+              <div class="flex space-x-2">
+                <img
+                  src="/icons/check_FILL.svg"
+                  alt=""
+                  class="h-[22px] w-[22px]"
+                />
+                <p class="text-base text-primary font-medium">
+                  Appear in search results
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- premium Plan -->
+          <div
+            class="border-2 border-my_border bg-white rounded-md border-solid my-5"
+          >
+            <div
+              class="flex p-5 justify-between border-b-2 border-my_border rounded-md border-solid"
+            >
+              <h1 class="text-primary text-[22px] font-bold">Premium Plan</h1>
+              <span class="text-primary text-[22px] font-bold">$ 50 / mo</span>
+            </div>
+            <div class="flex flex-col m-[20px] gap-3">
+              <div class="flex space-x-2">
+                <img
+                  src="/icons/check_FILL.svg"
+                  alt=""
+                  class="h-[22px] w-[22px]"
+                />
+                <p class="text-base text-primary font-medium">
+                  Basic profile display on website
+                </p>
+              </div>
+              <div class="flex space-x-2">
+                <img
+                  src="/icons/check_FILL.svg"
+                  alt=""
+                  class="h-[22px] w-[22px]"
+                />
+                <p class="text-base text-primary font-medium">
+                  Appear in search results
+                </p>
+              </div>
+              <div class="flex space-x-2">
+                <img
+                  src="/icons/check_FILL.svg"
+                  alt=""
+                  class="h-[22px] w-[22px]"
+                />
+                <p class="text-base text-primary font-medium">
+                  Featured in main chat box
+                </p>
+              </div>
+              <div class="flex space-x-2">
+                <img
+                  src="/icons/check_FILL.svg"
+                  alt=""
+                  class="h-[22px] w-[22px]"
+                />
+                <p class="text-base text-primary font-medium">
+                  Featured in newsletter
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- card end -->
         <!-- help center -->
         <div class="flex my-6 flex-col">
           <div>
@@ -116,16 +214,12 @@
               <img src="/icons/Logout.svg" alt="" class="w-6 h-6" />
               <span class="text-dark_gray">Log out</span>
             </div>
-           
           </div>
           <div class="flex justify-between p-4">
             <div class="flex space-x-2">
               <img src="/icons/x.svg" alt="" class="w-6 h-6" />
-              <p class="text-secondary">
-                Delete Account
-              </p>
+              <p class="text-secondary">Delete Account</p>
             </div>
-         
           </div>
         </div>
       </div>
@@ -136,6 +230,18 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const isPopupShown = ref(false);
+const settingPopupShown = ref(false);
+function showPopup() {
+  isPopupShown.value = true;
+}
+</script>
 
-<style></style>
+<style>
+.modal {
+  @apply fixed top-0 left-0 w-full h-full;
+  background-color: rgba(0, 0, 0, 0.5);
+  @apply flex flex-col lg:flex-row  items-center justify-center;
+}
+</style>
