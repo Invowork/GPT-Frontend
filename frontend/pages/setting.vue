@@ -240,33 +240,27 @@
               <span>Help center</span>
             </div>
           </div>
-          <div class="bg-white shadow-md">
-            <div class="flex justify-between p-4">
-              <div class="flex space-x-2">
-                <span class="text-dark_gray">FAQ</span>
-              </div>
+          <div class="bg-white shadow-md grid grid-cols-1 divide-y divide-gray">
+            <div class="p-4">
+              <span class="text-dark_gray">Faq</span>
             </div>
-            <div class="flex justify-between p-4">
-              <div class="flex space-x-2">
-                <span class="text-dark_gray">Term of Service</span>
-              </div>
+            <div class="p-4">
+              <span class="text-dark_gray">Terms of service</span>
             </div>
-            <div class="flex justify-between p-4">
-              <div class="flex space-x-2">
-                <span class="text-dark_gray">Policy Service</span>
-              </div>
+            <div class="p-4">
+              <span class="text-dark_gray">Policy Service</span>
             </div>
           </div>
         </div>
         <!-- logout -->
-        <div class="bg-white shadow-md">
-          <div class="flex p-4">
+        <div class="bg-white shadow-md grid grid-cols-1 gap-4 divide-y divide-gray ">
+          <div class="p-4 flex">
             <div class="flex space-x-2">
               <img src="/icons/Logout.svg" alt="" class="w-6 h-6" />
               <span class="text-dark_gray">Log out</span>
             </div>
           </div>
-          <div class="flex justify-between p-4">
+          <div class="p-4 flex justify-between">
             <div class="flex space-x-2">
               <img src="/icons/x.svg" alt="" class="w-6 h-6" />
               <p class="text-secondary">Delete Account</p>
