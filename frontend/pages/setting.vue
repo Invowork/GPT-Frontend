@@ -2,37 +2,112 @@
   <div class="flex flex-col lg:flex-row md:flex-row h-screen">
     <div class="flex flex-col bg-primary w-75 flex-shrink-0">
       <div class="flex flex-col p-6 justify-between h-screen">
-      <div>
-            <div class="flex border-b border-[#242424]">
-        <p class="mb-2 text-[11px] font-medium text-white">lawyer profile</p>
-      </div>
-      <div class="flex items-center justify-center py-10">
-        <div class="flex h-[100px] w-[100px] flex-col items-center rounded-[164.583px] border-[0.823px] border-dashed border-[#09D3FF] px-[14.813px] py-[37.031px]">
-          <img src="/icons/CameraPlus.svg" alt="" class="h-[26.333px] w-[26.333px]" />
+        <div>
+          <div class="flex border-b border-[#242424]">
+            <p class="mb-2 text-[11px] font-medium text-white">
+              lawyer profile
+            </p>
+          </div>
+          <div class="flex items-center justify-center py-10">
+            <div
+              class="flex h-[100px] w-[100px] flex-col items-center rounded-[164.583px] border-[0.823px] border-dashed border-[#09D3FF] px-[14.813px] py-[37.031px]"
+            >
+              <img
+                src="/icons/CameraPlus.svg"
+                alt=""
+                class="h-[26.333px] w-[26.333px]"
+              />
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <input
+              type="text"
+              class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
+              placeholder="Full Name"
+            />
+            <input
+              type="text"
+              class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
+              placeholder="Law Firm"
+            />
+            <select
+              class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
+            >
+              <option value="Select an area of law">
+                Select an area of law
+              </option>
+              <option value="Criminal Law">Criminal Law</option>
+              <option value="Family Law">Family Law</option>
+              <option value="Immigration Law">Immigration Law</option>
+            </select>
+            <input
+              type="email"
+              class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
+              placeholder="Email Address"
+            />
+          </div>
         </div>
-      </div>
-      <div class="flex flex-col">
-        <input type="text" class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]" placeholder="Full Name" />
-        <input type="text" class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]" placeholder="Law Firm" />
-        <select class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]">
-          <option value="Select an area of law">Select an area of law</option>
-          <option value="Criminal Law">Criminal Law</option>
-          <option value="Family Law">Family Law</option>
-          <option value="Immigration Law">Immigration Law</option>
-        </select>
-        <input type="email" class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]" placeholder="Email Address" />
-      </div>
-      </div>
 
-      <div class="flex items-center space-x-2 bg-[#202020] p-2 ">
-        <div>
-          <img src="/icons/Arrow-Up.svg" alt="" class="h-[17px] w-[17px]" />
+        <!-- <div class="flex w-full justify-between items-center">
+        <div class="flex items-center space-x-2 bg-[#202020] p-2 w-4/5 ">
+          <div>
+            <img src="/icons/Arrow-Up.svg" alt="" class="h-[17px] w-[17px]" />
+          </div>
+          <div>
+            <span class="text-base text-[#358DF4]">Upgrade to Premium</span>
+          </div>
         </div>
+        <div class="flex bg-[#202020]">
+          <div>
+            <img src="/icons/Vector.svg" alt="" class="h-5 w-5" />
+          </div>
+        </div>
+       </div> -->
+
         <div>
-          <span class="text-base text-[#358DF4]">Upgrade to Premium</span>
+          <div
+            v-if="showUpgrade"
+            class="flex w-full justify-between items-center"
+          >
+            <div
+              class="flex items-center space-x-2 bg-[#202020] p-2 w-4/5 lg:flex-1 cursor-pointer"
+            >
+              <div>
+                <img
+                  src="/icons/Arrow-Up.svg"
+                  alt=""
+                  class="h-[17px] w-[17px]"
+                />
+              </div>
+              <div>
+                <span class="text-base text-[#358DF4]">Upgrade to Premium</span>
+              </div>
+            </div>
+            <div class="flex bg-[#202020] p-2 lg:hidden">
+              <div>
+                <img
+                  src="/icons/Vector.svg"
+                  alt=""
+                  class="h-5 w-5 cursor-pointer"
+                  @click="replaceDiv"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div v-else class="flex bg-[#202020] p-2 space-x-2 lg:hidden">
+            <div>
+              <img
+                src="/icons/Vector.svg"
+                alt=""
+                class="h-5 w-5 cursor-pointer"
+                @click="replaceDiv"
+              />
+            </div>
+            <span class="text-white">Setting</span>
+          </div>
         </div>
       </div>
-    </div>
     </div>
     <div class="flex-1 w-full mr-[300px] hidden md:block lg:block">
       <div class="flex flex-col p-[70px]">
@@ -67,7 +142,7 @@
             </div>
           </div>
         </div>
-        <!-- card -->
+
         <div class="modal" v-if="isPopupShown">
           <div
             class="border-2 border-my_border bg-white rounded-md border-solid"
@@ -200,9 +275,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="flex flex-col bg-primary w-75 overflow-x-hidden flex-shrink-0 h-screen">
-    
-    </div> -->
   </div>
 </template>
 
@@ -212,6 +284,17 @@ const settingPopupShown = ref(false);
 function showPopup() {
   isPopupShown.value = true;
 }
+
+const isSlided = ref(false);
+const showUpgrade = ref(true);
+
+const slideLeft = () => {
+  isSlided.value = !isSlided.value;
+};
+
+const replaceDiv = () => {
+  showUpgrade.value = !showUpgrade.value;
+};
 </script>
 
 <style>
@@ -219,5 +302,9 @@ function showPopup() {
   @apply fixed top-0 left-0 w-full h-full;
   background-color: rgba(0, 0, 0, 0.5);
   @apply flex flex-col lg:flex-row  items-center justify-center;
+}
+.slide-left {
+  transform: translateX(-100%);
+  transition: transform 1s ease;
 }
 </style>
