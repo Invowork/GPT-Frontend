@@ -1,62 +1,38 @@
 <template>
   <div class="flex flex-col lg:flex-row md:flex-row h-screen">
-    <div class="flex flex-col bg-primary w-75 flex-shrink-0 h-screen">
-      <div class="flex flex-col p-6">
-        <div class="flex border-b border-[#242424]">
-          <p class="text-[11px] mb-2 font-medium text-white">lawyer profile</p>
-        </div>
-        <div class="flex justify-center items-center py-10">
-          <div
-            class="flex flex-col w-[100px] h-[100px] items-center px-[14.813px] py-[37.031px] rounded-[164.583px] border-[0.823px] border-dashed border-[#09D3FF]"
-          >
-            <img
-              src="/icons/CameraPlus.svg"
-              alt=""
-              class="w-[26.333px] h-[26.333px]"
-            />
-          </div>
-        </div>
-
-        <div class="flex flex-col">
-          <input
-            type="text"
-            class="mb-4 w-full border text-[#737272] bg-primary border-[#242424] rounded-md border-solid py-3 px-5"
-            placeholder="Full Name"
-          />
-          <input
-            type="text"
-            class="mb-4 w-full bg-primary border text-[#737272] border-[#242424] rounded-md border-solid py-3 px-5"
-            placeholder="Law Firm"
-          />
-          <select
-            class="mb-4 w-full text-[#737272] bg-primary border border-[#242424] rounded-md border-solid py-3 px-5"
-          >
-            <option value="Select an area of law">Select an area of law</option>
-            <option value="Criminal Law">Criminal Law</option>
-            <option value="Family Law">Family Law</option>
-            <option value="Immigration Law">Immigration Law</option>
-          </select>
-          <input
-            type="email"
-            class="mb-4 w-full text-[#737272] bg-primary border border-[#242424] rounded-md border-solid py-3 px-5"
-            placeholder="Email Address"
-          />
-        </div>
-
-        <div class="flex  items-center mt-72 p-2 justify-between">
-         <div class="flex items-center space-x-2 bg-[#202020] ">
-          <div>
-            <img src="/icons/Arrow-Up.svg" alt="" class="w-[17px] h-[17px]" />
-          </div>
-          <div>
-            <span class="text-[#358DF4] text-base">Upgrade to Premium</span>
-          </div>
-         </div>
-          <div>
-            <img src="/icons/Vector.svg" alt="" class="w-[17px] h-[17px]" />
-          </div>
+    <div class="flex flex-col bg-primary w-75 flex-shrink-0">
+      <div class="flex flex-col p-6 justify-between h-screen">
+      <div>
+            <div class="flex border-b border-[#242424]">
+        <p class="mb-2 text-[11px] font-medium text-white">lawyer profile</p>
+      </div>
+      <div class="flex items-center justify-center py-10">
+        <div class="flex h-[100px] w-[100px] flex-col items-center rounded-[164.583px] border-[0.823px] border-dashed border-[#09D3FF] px-[14.813px] py-[37.031px]">
+          <img src="/icons/CameraPlus.svg" alt="" class="h-[26.333px] w-[26.333px]" />
         </div>
       </div>
+      <div class="flex flex-col">
+        <input type="text" class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]" placeholder="Full Name" />
+        <input type="text" class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]" placeholder="Law Firm" />
+        <select class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]">
+          <option value="Select an area of law">Select an area of law</option>
+          <option value="Criminal Law">Criminal Law</option>
+          <option value="Family Law">Family Law</option>
+          <option value="Immigration Law">Immigration Law</option>
+        </select>
+        <input type="email" class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]" placeholder="Email Address" />
+      </div>
+      </div>
+
+      <div class="flex items-center space-x-2 bg-[#202020] p-2 ">
+        <div>
+          <img src="/icons/Arrow-Up.svg" alt="" class="h-[17px] w-[17px]" />
+        </div>
+        <div>
+          <span class="text-base text-[#358DF4]">Upgrade to Premium</span>
+        </div>
+      </div>
+    </div>
     </div>
     <div class="flex-1 w-full mr-[300px] hidden md:block lg:block">
       <div class="flex flex-col p-[70px]">
