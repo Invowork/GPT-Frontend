@@ -70,9 +70,9 @@ const user = useSupabaseUser();
         </div>
       </div>
       <div class="flex w-full xl:w-1/3 lg:w-1/3 md:w-1/3 h-2/3 lg:h-screen xl:h-screen md:h-screen">
-        <div class="flex flex-col mx-auto">
+        <div class="flex flex-col mx-auto justify-between">
           <div
-            class="text-primary rounded-md px-8 py-12 w-full max-w-md my-[90px] hidden lg:block"
+            class="text-primary rounded-md px-8  w-full max-w-md mt-[90px] hidden lg:block"
           >
             <h1 class="text-main font-extrabold text-center mb-4">
               <a class="text-secondary">24/7</a> Lawyer
@@ -129,11 +129,13 @@ const user = useSupabaseUser();
             </form>
           </div>
 
-          <p class="text-center ">
+          <div>
+            <p class="text-center ">
             Already have an account?
             <NuxtLink to="/login" class="text-secondary underline border-b-0">Sign in</NuxtLink>
             
           </p>
+          </div>
         </div>
       </div>
     </div>

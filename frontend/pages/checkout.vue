@@ -2,10 +2,14 @@
   <div
     class="flex flex-col lg:flex-row-reverse w-full lg:h-screen px-4 lg:px-0 bg-[#F2F2F7]"
   >
-    <div class="flex items-center justify-center my-5 lg:hidden ">
-      <img src="/icons/Logo.png" alt="" class="text-primary text-center text-2xl  font-extrabold " />
+    <div class="flex items-center justify-center my-5 lg:hidden">
+      <img
+        src="/icons/Logo.png"
+        alt=""
+        class="text-primary text-center text-2xl font-extrabold"
+      />
     </div>
-    <div class="lg:flex-1 ">
+    <div class="lg:flex-1 lg:bg-white">
       <div class="flex flex-col mx-auto lg:px-[70px] lg:pt-[241px] lg:pb-10">
         <div
           class="border-2 bg-white border-my_border rounded-md border-solid my-5"
@@ -13,8 +17,8 @@
           <div
             class="flex p-5 justify-between border-b-2 border-my_border rounded-md border-solid"
           >
-            <h1 class="text-primary text-[22px] font-bold">Premium Plan</h1>
-            <span class="text-primary text-[22px] font-bold">$ 50 / mo</span>
+            <h1 class="text-secondary text-[22px] font-bold">Premium Plan</h1>
+            <span class="text-primary text-[22px] font-bold"><span class="text-base">$ </span>50 <span class="text-base">/ mo</span></span>
           </div>
           <div class="flex flex-col m-[20px] gap-3">
             <div class="flex space-x-2">
@@ -65,37 +69,61 @@
     <div class="flex lg:w-2/3">
       <div class="lg:w-72 flex-shrink-0 bg-primary hidden lg:block">
         <div class="flex flex-col p-6 justify-between h-screen">
-      <div>
+          <div>
             <div class="flex border-b border-[#242424]">
-        <p class="mb-2 text-[11px] font-medium text-white">lawyer profile</p>
-      </div>
-      <div class="flex items-center justify-center py-10">
-        <div class="flex h-[100px] w-[100px] flex-col items-center rounded-[164.583px] border-[0.823px] border-dashed border-[#09D3FF] px-[14.813px] py-[37.031px]">
-          <img src="/icons/CameraPlus.svg" alt="" class="h-[26.333px] w-[26.333px]" />
-        </div>
-      </div>
-      <div class="flex flex-col">
-        <input type="text" class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]" placeholder="Full Name" />
-        <input type="text" class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]" placeholder="Law Firm" />
-        <select class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]">
-          <option value="Select an area of law">Select an area of law</option>
-          <option value="Criminal Law">Criminal Law</option>
-          <option value="Family Law">Family Law</option>
-          <option value="Immigration Law">Immigration Law</option>
-        </select>
-        <input type="email" class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]" placeholder="Email Address" />
-      </div>
-      </div>
+              <p class="mb-2 text-[11px] font-medium text-white">
+                lawyer profile
+              </p>
+            </div>
+            <div class="flex items-center justify-center py-10">
+              <div
+                class="flex h-[100px] w-[100px] flex-col items-center rounded-[164.583px] border-[0.823px] border-dashed border-[#09D3FF] px-[14.813px] py-[37.031px]"
+              >
+                <img
+                  src="/icons/CameraPlus.svg"
+                  alt=""
+                  class="h-[26.333px] w-[26.333px]"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <input
+                type="text"
+                class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
+                placeholder="Full Name"
+              />
+              <input
+                type="text"
+                class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
+                placeholder="Law Firm"
+              />
+              <select
+                class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
+              >
+                <option value="Select an area of law">
+                  Select an area of law
+                </option>
+                <option value="Criminal Law">Criminal Law</option>
+                <option value="Family Law">Family Law</option>
+                <option value="Immigration Law">Immigration Law</option>
+              </select>
+              <input
+                type="email"
+                class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
+                placeholder="Email Address"
+              />
+            </div>
+          </div>
 
-      <div class="flex items-center space-x-2 bg-[#202020] p-2 ">
-        <div>
-          <img src="/icons/Arrow-Up.svg" alt="" class="h-[17px] w-[17px]" />
+          <div class="flex items-center space-x-2 bg-[#202020] p-2">
+            <div>
+              <img src="/icons/Arrow-Up.svg" alt="" class="h-[17px] w-[17px]" />
+            </div>
+            <div>
+              <span class="text-base text-[#358DF4]">Upgrade to Premium</span>
+            </div>
+          </div>
         </div>
-        <div>
-          <span class="text-base text-[#358DF4]">Upgrade to Premium</span>
-        </div>
-      </div>
-    </div>
       </div>
       <div class="lg:flex-1 w-full lg:bg-[#F2F2F7] lg:p-[70px]">
         <div class="flex flex-col gap-8 lg:my-[86px]">
@@ -156,24 +184,29 @@
                 <div class="w-full">
                   <div class="flex flex-row gap-4">
                     <div>
-                      <span class="text-[#7A7878] text-[11px] font-medium uppercase">Expire date</span>
+                      <span
+                        class="text-[#7A7878] text-[11px] font-medium uppercase"
+                        >Expire date</span
+                      >
                       <input
                         type="text"
-                        class="w-full p-2  "
+                        class="w-full p-2"
                         placeholder="MM/YY"
                       />
                     </div>
 
                     <div>
-                      <span class="text-[#7A7878] text-[11px] font-medium uppercase">CVC</span>
-                      <input
-                        type="text"
-                        class="w-full p-2 "
-                        placeholder="cvc"
-                      />
+                      <span
+                        class="text-[#7A7878] text-[11px] font-medium uppercase"
+                        >CVC</span
+                      >
+                      <input type="text" class="w-full p-2" placeholder="cvc" />
                     </div>
                     <div>
-                      <span class="text-[#7A7878] text-[11px] font-medium uppercase">Zip code</span>
+                      <span
+                        class="text-[#7A7878] text-[11px] font-medium uppercase"
+                        >Zip code</span
+                      >
                       <input
                         type="text"
                         class="w-full p-2"
@@ -183,6 +216,20 @@
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div class="flex items-center">
+              <input
+                id="default-checkbox"
+                type="checkbox"
+                value=""
+                class="h-3 w-3 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+              />
+              <label
+                for="default-checkbox"
+                class="text-[#48414] text-center text-[12px] font-medium ml-3"
+                >I agree to Terms of Service</label
+              >
             </div>
           </div>
           <button

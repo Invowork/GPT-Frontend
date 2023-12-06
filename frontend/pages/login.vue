@@ -72,9 +72,9 @@ onMounted(() => {
       <div
         class="flex w-full xl:w-1/3 lg:w-1/3 md:w-1/3 h-2/3 lg:h-screen xl:h-screen md:h-screen"
       >
-        <div class="flex flex-col mx-auto">
+        <div class="flex flex-col mx-auto justify-between my-12">
           <div
-            class="text-primary rounded-md px-8 lg:px-12 py-12 w-full my-[90px] hidden lg:block"
+            class="text-primary rounded-md px-8 lg:px-12  w-full mt-[90px] hidden lg:block"
           >
             <h1 class="text-main font-extrabold text-center mb-4">
               <a class="text-secondary">24/7</a> Lawyer
@@ -89,7 +89,7 @@ onMounted(() => {
                 Enter your email address if you already have an account.
               </p>
             </div>
-            <form @submit.prevent="login" class="flex flex-col justify-center px-5 lg:px-12">
+            <form @submit.prevent="login" class="flex flex-col justify-center px-5 mb-12 lg:px-12">
               <input
                 type="email"
                 v-model="email"
