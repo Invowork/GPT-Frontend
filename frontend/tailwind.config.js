@@ -15,11 +15,16 @@ export default {
       white:"#fff",
       my_border:"#EBE9E9",
       gray:"#999191",
-      dark_gray:"#737272"
+      dark_gray:"#737272",
+      'btn-bg':'#202020',
+      'blue-text':"#358DF4"
+
      
 
     },
     fontSize:{
+      'xs': '.75rem',
+       'sm': '.875rem',
       'main':'33px',
       base:'15px',
      

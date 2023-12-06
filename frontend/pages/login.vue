@@ -110,7 +110,7 @@ onMounted(() => {
 
           <div>
             <p class="text-center ">
-              Already have an account?
+              Don’t have an account yet?
             
               <NuxtLink to="/register" class="text-secondary underline border-b-0">Register.</NuxtLink>
             </p>

@@ -110,7 +110,7 @@
               <span class="text-primary">Email</span>
             </div>
             <div>
-              <p class="text-primary">yaakoub.elhbari@gmail.com</p>
+              <p class="text-primary">afaqahmadmalik970@gmail.com</p>
             </div>
           </div>
           <div class="flex justify-between p-4">
@@ -256,7 +256,7 @@
           <span class="text-dark_gray">Email</span>
         </div>
         <div>
-          <p class="text-dark_gray">yaakoub.elhbari@gmail.com</p>
+          <p class="text-dark_gray">afaqahmadmalik970@gmail.com</p>
         </div>
       </div>
       <div class="flex justify-between p-4">
@@ -273,6 +273,7 @@
       </div>
     </div>
 
+    
     <!-- card end -->
     <!-- help center -->
     <div class="flex my-6 flex-col">
