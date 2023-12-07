@@ -17,7 +17,10 @@ export default {
       gray:"#999191",
       dark_gray:"#737272",
       'btn-bg':'#202020',
-      'blue-text':"#358DF4"
+      'blue-text':"#358DF4",
+      'aqua-blue':'#09D3FF',
+      'md-dark-gray':'#7A7878',
+      'light-pink':'#FDF3F3'
 
      
 
