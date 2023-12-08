@@ -32,19 +32,19 @@
 //  definePageMeta({
 //    middleware: ["auth"],
 //  });
- const user = useSupabaseUser();
- const client = useSupabaseClient();
- const router = useRouter();
+//  const user = useSupabaseUser();
+//  const client = useSupabaseClient();
+//  const router = useRouter();
 
 
 
- onMounted(() => {
-   watchEffect(() => {
-     if (!user.value) {
-   navigateTo("/login");
- }
-});
-});
+//  onMounted(() => {
+//    watchEffect(() => {
+//      if (!user.value) {
+//    navigateTo("/login");
+//  }
+// });
+// });
 </script>
 
 <style></style>

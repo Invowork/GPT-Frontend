@@ -1,4 +1,6 @@
 <script setup>
+import tailwindConfig from "~/tailwind.config";
+
 const user = useSupabaseUser();
 const router = useRouter();
 const email = ref("");
@@ -7,6 +9,7 @@ const isSignUp = ref(false);
 const errorMsg = ref(null);
 
 const client = useSupabaseClient();
+const logoPath= tailwindConfig.theme.extend.backgroundImage.logo
 
 async function login() {
   try {
@@ -15,7 +18,7 @@ async function login() {
       password: password.value,
     });
     if (error) throw error;
-    router.push("/");
+    router.push("/dashboard");
   } catch (error) {
     errorMsg.value = `Error: ${error.message}`;
     setTimeout(() => {
@@ -30,7 +33,7 @@ async function login() {
 onMounted(() => {
   watchEffect(() => {
     if (user.value) {
-      navigateTo("/");
+      navigateTo("/dashboard");
     }
   });
 });
@@ -47,10 +50,10 @@ onMounted(() => {
         <div class="flex flex-col justify-center items-center">
           <div class="flex space-x-4 items-center">
             <div
-              class="bg-secondary h-[44px] w-[44px] lg:h-[81px] lg:w-[81px] rounded-full lg:p-4 p-2"
+              class="bg-white h-[44px] w-[44px] lg:h-[81px] lg:w-[81px] rounded-full lg:p-4 p-2"
             >
               <img
-                src="/icons/ScaleOutline.svg"
+                :src="logoPath"
                 alt=""
                 class="h-[28px] w-[28px] lg:h-[50px] lg:w-[50px]"
               />
@@ -76,8 +79,12 @@ onMounted(() => {
           <div
             class="text-primary rounded-md px-8 lg:px-12  w-full mt-[90px] hidden lg:block"
           >
-            <h1 class="text-main font-extrabold text-center mb-4">
-              <a class="text-secondary">24/7</a> Lawyer
+            <h1 class="text-main font-extrabold items-center text-center mb-4">
+              <img
+                :src="logoPath"
+                alt=""
+                class=""
+              />
             </h1>
             <p class="text-center">
               Enter your email address if you already have an account.

@@ -1,17 +1,18 @@
 <template>
   <div class="flex w-full h-screen">
     <div
-      class="flex lg:flex flex-col justify-between bg-primary w-64 flex-shrink-0 px-6 py-7 hidden lg:block" :class="{ 'hidden': !isSidebarOpen }"
+      class="flex lg:flex flex-col justify-between bg-primary w-64 flex-shrink-0 px-6 py-7"
+      :class="{ hidden: !isSidebarOpen }"
     >
       <div class="flex flex-col gap-y-6">
         <div class="flex items-center justify-between">
           <div class="flex space-x-2 items-center">
             <span
-              class="bg-secondary h-9 w-9 rounded-full justify-center items-center p-2"
+              class="bg-md-dark-gray h-9 w-9 rounded-full justify-center items-center p-2"
             >
-              <img src="/icons/ScaleOutline.svg" alt="" class="h-5 w-5" />
+              <img src="/icons/Inowork.png" alt="" class="h-5 w-5" />
             </span>
-            <span class="text-sm text-white text-ellipsis font-semibold"
+            <span class="text-sm text-gray text-ellipsis font-semibold"
               >New Chat</span
             >
           </div>
@@ -50,16 +51,30 @@
         </div>
       </div>
       <div class="flex flex-col space-y-2">
-        <div class="flex items-center justify-start space-x-2 p-2 bg-btn-bg">
-          <img src="/icons/Arrow-Up.svg" alt="" class="h-[17px] w-[17px]" />
+        <div class="flex items-center justify-start space-x-2 p-2 bg-secondary">
+          <NuxtLink to="/checkout"
+            class="flex space-x-2 items-center cursor-pointer">
+            <img src="/icons/Arrow-Up.svg" alt="" class="h-[17px] w-[17px]" />
 
-          <span class="text-blue-text text-sm font-medium"
-            >Upgrade to Premium</span
+            <span class="text-white text-sm font-medium"
+              >Upgrade to Premium</span
+            ></NuxtLink
           >
         </div>
-        <div class="flex space-x-2 items-center p-2">
-          <img src="/icons/Vector.svg" alt="" class="h-4 w-4 cursor-pointer" />
-          <span class="text-white text-sm font-medium">Setting</span>
+        <div class="flex items-center p-2">
+          <NuxtLink
+            to="/setting"
+            class="flex space-x-2 items-center cursor-pointer"
+          >
+            <img
+              src="/icons/Vector.svg"
+              alt=""
+              class="h-4 w-4 cursor-pointer"
+            />
+            <span class="text-white text-sm font-medium"
+              >Setting</span
+            ></NuxtLink
+          >
         </div>
       </div>
     </div>
@@ -68,11 +83,16 @@
     >
       <div class="flex flex-col items-center space-y-3">
         <div class="flex items-center justify-between lg:justify-center w-full">
-          <img src="/icons/burger.svg" alt="" class="w-5 h-2 lg:hidden" @click="toggleSidebar" />
           <img
-            src="/icons/Logo.png"
+            src="/icons/burger.svg"
             alt=""
-            class="text-primary text-center text-2xl font-extrabold"
+            class="w-5 h-2 lg:hidden"
+            @click="toggleSidebar"
+          />
+          <img
+            src="/icons/Inowork.png"
+            alt=""
+            class="text-primary text-center text-2xl px-16 font-extrabold"
           />
           <img src="/icons/Frame.svg" alt="" class="w-7 h-6 lg:hidden" />
         </div>
@@ -143,13 +163,25 @@
 </template>
 
 <script setup lang="ts">
+ definePageMeta({
+   middleware: ["auth"],
+ });
+const user = useSupabaseUser();
+const client = useSupabaseClient();
+const router = useRouter();
+
+onMounted(() => {
+  watchEffect(() => {
+    if (!user.value) {
+      navigateTo("/login");
+    }
+  });
+});
 const isSidebarOpen = ref(false);
 
 const toggleSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value;
 };
-
-console.log(toggleSidebar);
 </script>
 
 <style></style>

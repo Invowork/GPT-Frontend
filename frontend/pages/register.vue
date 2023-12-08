@@ -1,4 +1,5 @@
 <script setup>
+import tailwindConfig from "~/tailwind.config";
 const router = useRouter();
 const email = ref("");
 const password = ref("");
@@ -7,6 +8,8 @@ const lawFirm = ref("");
 const areaLaw = ref("");
 const isSignUp = ref(false);
 const errorMsg = ref(null);
+
+const logoPath= tailwindConfig.theme.extend.backgroundImage.logo
 
 const client = useSupabaseClient();
 
@@ -74,8 +77,12 @@ const user = useSupabaseUser();
           <div
             class="text-primary rounded-md px-8  w-full max-w-md mt-[90px] hidden lg:block"
           >
-            <h1 class="text-main font-extrabold text-center mb-4">
-              <a class="text-secondary">24/7</a> Lawyer
+          <h1 class="text-main font-extrabold items-center text-center mb-4">
+              <img
+                :src="logoPath"
+                alt=""
+                class="w-40 h-40"
+              />
             </h1>
             <p class="text-center">
               Register as a lawyer on our platform today.

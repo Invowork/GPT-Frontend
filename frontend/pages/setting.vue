@@ -54,7 +54,7 @@
             class="flex w-full justify-between items-center"
           >
             <div
-              class="flex items-center space-x-2 bg-[#202020] p-2 w-4/5 lg:flex-1 cursor-pointer"
+              class="flex items-center space-x-2 bg-secondary p-2 w-4/5 lg:flex-1 cursor-pointer"
             >
               <div>
                 <img
@@ -74,8 +74,6 @@
                   alt=""
                   class="h-5 w-5 cursor-pointer"
                   @click="settingShowPopup"
-                 
-                  
                 />
               </div>
             </div>
@@ -95,13 +93,15 @@
         </div>
       </div>
     </div>
-    <div class="flex-1  mr-[300px] hidden md:block lg:block">
+    <div class="flex-1 mr-[300px] hidden md:block lg:block">
       <div class="flex flex-col lg:p-[70px] p-5">
         <div class="mb-8">
           <p class="text-primary font-semibold text-[28px]">Settings</p>
         </div>
         <div>
-          <div class="p-4 text-dark_gray font-medium"><span class="text-[11px] font-semibold">Account</span></div>
+          <div class="p-4 text-dark_gray font-medium">
+            <span class="text-[11px] font-semibold">Account</span>
+          </div>
         </div>
         <div class="bg-white shadow-md divide-y divide-my_border">
           <div class="flex justify-between p-4">
@@ -137,7 +137,9 @@
               <span class="text-[11px] font-semibold">Help center</span>
             </div>
           </div>
-          <div class="bg-white shadow-md grid grid-cols-1 divide-y divide-my_border">
+          <div
+            class="bg-white shadow-md grid grid-cols-1 divide-y divide-my_border"
+          >
             <div class="p-4">
               <span class="text-primary">FAQ</span>
             </div>
@@ -154,7 +156,11 @@
           class="bg-white shadow-md grid grid-cols-1 gap-4 divide-y divide-my_border"
         >
           <div class="p-4 flex">
-            <div class="flex space-x-2">
+            <div
+              class="flex space-x-2 cursor-pointer"
+              v-if="user"
+              @click="client.auth.signOut()"
+            >
               <img src="/icons/Logout.svg" alt="" class="w-6 h-6" />
               <span class="text-primary">Log out</span>
             </div>
@@ -273,7 +279,6 @@
       </div>
     </div>
 
-    
     <!-- card end -->
     <!-- help center -->
     <div class="flex my-6 flex-col">
@@ -282,7 +287,9 @@
           <span>Help center</span>
         </div>
       </div>
-      <div class="bg-white shadow-md grid grid-cols-1 divide-y divide-my_border">
+      <div
+        class="bg-white shadow-md grid grid-cols-1 divide-y divide-my_border"
+      >
         <div class="p-4">
           <span class="text-dark_gray">Faq</span>
         </div>
@@ -295,7 +302,9 @@
       </div>
     </div>
     <!-- logout -->
-    <div class="bg-white shadow-md grid grid-cols-1 gap-4 divide-y divide-my_border">
+    <div
+      class="bg-white shadow-md grid grid-cols-1 gap-4 divide-y divide-my_border"
+    >
       <div class="p-4 flex">
         <div class="flex space-x-2">
           <img src="/icons/Logout.svg" alt="" class="w-6 h-6" />
@@ -313,6 +322,13 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  middleware: ["auth"],
+});
+const user = useSupabaseUser();
+const client = useSupabaseClient();
+const router = useRouter();
+
 const isPopupShown = ref(false);
 const settingPopupShown = ref(false);
 function showPopup() {
@@ -337,6 +353,13 @@ const slideLeft = () => {
 const replaceDiv = () => {
   showUpgrade.value = !showUpgrade.value;
 };
+onMounted(() => {
+  watchEffect(() => {
+    if (!user.value) {
+      navigateTo("/login");
+    }
+  });
+});
 </script>
 
 <style>
