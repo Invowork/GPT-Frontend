@@ -1,7 +1,7 @@
 <template>
   <div class="flex w-full h-screen">
     <div
-      class="flex lg:flex flex-col justify-between bg-primary w-64 flex-shrink-0 px-6 py-7"
+      class="flex lg:flex flex-col justify-between bg-primary w-64 h-screen flex-shrink-0 px-6 py-7"
       :class="{ hidden: !isSidebarOpen }"
     >
       <div class="flex flex-col gap-y-6">
@@ -10,9 +10,14 @@
             <span
               class="bg-md-dark-gray h-9 w-9 rounded-full justify-center items-center p-2"
             >
-              <img src="/icons/Inowork.png" alt="" class="h-5 w-5" />
+            <img
+                :src="logoPath"
+                alt=""
+                class="h-[10px] w-[10px] "
+              />
             </span>
-            <span class="text-sm text-gray text-ellipsis font-semibold"
+            <span
+              class="text-xs text-white text-ellipsis text-center font-semibold"
               >New Chat</span
             >
           </div>
@@ -21,12 +26,15 @@
           </div>
         </div>
         <div class="flex flex-col items-start">
-          <span class="text-dark_gray text-sm font-medium m-2">Today</span>
+          <span class="text-dark_gray text-sm font-medium mb-2 pl-2"
+            >Today</span
+          >
           <button
             type="submit"
-            class="bg-secondary p-[11px] w-full rounded-md text-left mb-2"
+            class="bg-secondary px-[11px] py-2 w-full items-center rounded-md text-left"
           >
-            <span class="text-white font-semibold text-sm text-ellipsis"
+            <span
+              class="text-white font-semibold text-sm text-center text-ellipsis"
               >New Chat</span
             >
           </button>
@@ -51,9 +59,13 @@
         </div>
       </div>
       <div class="flex flex-col space-y-2">
-        <div class="flex items-center justify-start space-x-2 p-2 bg-secondary">
-          <NuxtLink to="/checkout"
-            class="flex space-x-2 items-center cursor-pointer">
+        <div
+          class="flex items-center justify-start space-x-2 p-2 bg-tertiary rounded-md"
+        >
+          <NuxtLink
+            to="/checkout"
+            class="flex space-x-2 items-center cursor-pointer"
+          >
             <img src="/icons/Arrow-Up.svg" alt="" class="h-[17px] w-[17px]" />
 
             <span class="text-white text-sm font-medium"
@@ -90,14 +102,14 @@
             @click="toggleSidebar"
           />
           <img
-            src="/icons/Inowork.png"
-            alt=""
-            class="text-primary text-center text-2xl px-16 font-extrabold"
-          />
+                :src="logoPath"
+                alt=""
+                class="h-16 w-32"
+              />
           <img src="/icons/Frame.svg" alt="" class="w-7 h-6 lg:hidden" />
         </div>
 
-        <p class="text-primary text-center text-sm font-normal p-6">
+        <p class="text-primary text-center text-sm font-normal px-6">
           Ask a legal question directly or upload a contract and ask AI to help
           you understand it better.
         </p>
@@ -163,9 +175,11 @@
 </template>
 
 <script setup lang="ts">
- definePageMeta({
-   middleware: ["auth"],
- });
+definePageMeta({
+  middleware: ["auth"],
+});
+import tailwindConfig from "~/tailwind.config";
+
 const user = useSupabaseUser();
 const client = useSupabaseClient();
 const router = useRouter();
@@ -178,6 +192,7 @@ onMounted(() => {
   });
 });
 const isSidebarOpen = ref(false);
+const logoPath = tailwindConfig.theme.extend.backgroundImage.logo;
 
 const toggleSidebar = () => {
   isSidebarOpen.value = !isSidebarOpen.value;
