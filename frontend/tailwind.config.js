@@ -21,18 +21,13 @@ export default {
       'aqua-blue':'#09D3FF',
       'md-dark-gray':'#7A7878',
       'light-pink':'#e8f5e9'
-
-     
-
     },
     fontSize:{
       'xs': '.75rem',
        'sm': '.875rem',
       'main':'33px',
       base:'15px',
-     
     },
-
     extend: {
       backgroundImage:{
         logo:'/icons/Inowork.png',

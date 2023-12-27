@@ -97,16 +97,6 @@
                 class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
                 placeholder="Law Firm"
               />
-              <select
-                class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"
-              >
-                <option value="Select an area of law">
-                  Select an area of law
-                </option>
-                <option value="Criminal Law">Criminal Law</option>
-                <option value="Family Law">Family Law</option>
-                <option value="Immigration Law">Immigration Law</option>
-              </select>
               <input
                 type="email"
                 class="bg-primary mb-4 w-full rounded-md border border-solid border-[#242424] px-5 py-3 text-[#737272]"

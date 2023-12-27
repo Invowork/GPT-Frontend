@@ -173,7 +173,7 @@ const router = useRouter();
 onMounted(() => {
   watchEffect(() => {
     if (!user.value) {
-      navigateTo("/login");
+      // navigateTo("/login");
     }
   });
 });

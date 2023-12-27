@@ -1,34 +1,37 @@
-<script setup>
+<script lang="ts" setup>
 import tailwindConfig from "~/tailwind.config";
+import 'vue-toast-notification/dist/theme-bootstrap.css'
+import { useToast } from 'vue-toast-notification';
 
 const user = useSupabaseUser();
 const router = useRouter();
 const email = ref("");
 const password = ref("");
 const isSignUp = ref(false);
-const errorMsg = ref(null);
+const errorMsg = ref<string>('');
 
 const client = useSupabaseClient();
-const logoPath= tailwindConfig.theme.extend.backgroundImage.logo
+const logoPath: string = tailwindConfig.theme?.extend?.backgroundImage?.logo as string;
 
 async function login() {
+  const toast = useToast();
+
   try {
-    const { user, error } = await client.auth.signInWithPassword({
-      email: email.value,
-      password: password.value,
-    });
-    if (error) throw error;
+    // const { user, error } = await client.auth.signInWithPassword({
+    //   email: email.value,
+    //   password: password.value,
+    // });
+    // if (error) throw error;
+    console.log("user", user);
+    toast.success('Login successful!');
     router.push("/dashboard");
   } catch (error) {
-    errorMsg.value = `Error: ${error.message}`;
-    setTimeout(() => {
-      errorMsg.value = null;
-    }, 3000);
+    errorMsg.value = `Error: ${error?.message}`;
+    toast.error(errorMsg.value);
     console.log("user", user);
     console.log("error", error);
   }
 }
-
 
 onMounted(() => {
   watchEffect(() => {
@@ -66,8 +69,8 @@ onMounted(() => {
           </div>
           <div class="lg:mx-72 lg:mt-8 px-10 mt-5">
             <p class="text-gray text-base text-center">
-              We are the leading AI legal platform for consumers. Find valuable
-              leads with 24/7 Lawyer for your law firm or individual practice.
+              We are the leading AI platform for consumers. Find valuable
+              leads with 24/7 Service for your firm or individual practice.
             </p>
           </div>
         </div>

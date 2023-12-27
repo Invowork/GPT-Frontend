@@ -4,8 +4,6 @@ const router = useRouter();
 const email = ref("");
 const password = ref("");
 const fullName = ref("");
-const lawFirm = ref("");
-const areaLaw = ref("");
 const isSignUp = ref(false);
 const errorMsg = ref(null);
 
@@ -60,14 +58,14 @@ const user = useSupabaseUser();
             </div>
             <div class="lg:hidden xl:hidden md:hidden block">
               <h1 class="text-main font-extrabold text-white text-center">
-                <a class="text-secondary">24/7</a> Lawyer
+                <a class="text-secondary">24/7</a> Platform
               </h1>
             </div>
           </div>
           <div class="lg:mx-72 lg:mt-8 px-10 mt-5">
             <p class="text-gray text-base text-center">
               We are the leading AI legal platform for consumers. Find valuable
-              leads with 24/7 Lawyer for your law firm or individual practice.
+              leads with 24/7 Service for your firm or individual practice.
             </p>
           </div>
         </div>
@@ -102,23 +100,6 @@ const user = useSupabaseUser();
                 placeholder="Full Name"
               />
               <input
-                type="text"
-                v-model="lawFirm"
-                class="mb-4 w-full border-2 border-my_border rounded-md border-solid py-3 px-5"
-                placeholder="Law Firm"
-              />
-              <select
-                class="mb-4 w-full border-2 border-my_border rounded-md border-solid py-3 px-5"
-                v-model="areaLaw"
-              >
-                <option value="Select an area of law">
-                  Select an area of law
-                </option>
-                <option value="Criminal Law">Criminal Law</option>
-                <option value="Family Law">Family Law</option>
-                <option value="Immigration Law">Immigration Law</option>
-              </select>
-              <input
                 type="email"
                 v-model="email"
                 class="mb-4 w-full border-2 border-my_border rounded-md border-solid py-3 px-5"
@@ -136,12 +117,11 @@ const user = useSupabaseUser();
             </form>
           </div>
 
-          <div>
+          <div class="mb-20">
             <p class="text-center ">
-            Already have an account?
-            <NuxtLink to="/login" class="text-secondary underline border-b-0">Sign in</NuxtLink>
-            
-          </p>
+              Already have an account?
+              <NuxtLink to="/login" class="text-secondary underline border-b-0">Sign in</NuxtLink>
+            </p>
           </div>
         </div>
       </div>

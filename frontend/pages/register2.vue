@@ -16,7 +16,7 @@
           <div class="mx-72 mt-8 hidden lg:block">
             <p class="text-gray text-base text-center">
               We are the leading AI legal platform for consumers. Find valuable
-              leads with 24/7 Lawyer for your law firm or individual practice.
+              leads with 24/7 Service for your firm or individual practice.
             </p>
           </div>
         </div>
@@ -28,7 +28,7 @@
           <h1
             class="lg:text-main text-[22px] font-extrabold text-primary text-center"
           >
-            <a class="text-secondary">24/7</a> Lawyer
+            <a class="text-secondary">24/7</a> Service
           </h1>
           <span class="text-center text-base font-normal"
             >Choose a plan below.</span
